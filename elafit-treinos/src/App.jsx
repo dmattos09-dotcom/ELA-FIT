@@ -1,5 +1,7 @@
 import { Routes, Route, Link } from 'react-router-dom'
 
+import Diario from './treinos/Diario.jsx'
+
 // Iniciante 3x
 import TreinoA_Iniciante3x from './treinos/TreinoA_Iniciante3x.jsx'
 import TreinoB_Iniciante3x from './treinos/TreinoB_Iniciante3x.jsx'
@@ -129,6 +131,23 @@ function Home() {
         </header>
 
         <div style={{ padding: '32px 4px 48px 4px' }}>
+          <Link to="/diario" style={{
+            display: 'flex', alignItems: 'center', gap: '16px',
+            background: `linear-gradient(135deg, ${NAVY_DEEP} 0%, #0F1A32 100%)`,
+            border: `1px solid ${GOLD}`, borderLeft: `4px solid ${GOLD}`, borderRadius: '3px',
+            padding: '20px 22px', marginBottom: '36px', color: '#fff',
+          }}>
+            <div style={{ flex: 1 }}>
+              <div style={{ fontFamily: "'Mulish', sans-serif", fontWeight: 700, fontSize: '9px', letterSpacing: '3px', color: GOLD, textTransform: 'uppercase', marginBottom: '6px' }}>
+                Desafio MOVE 50
+              </div>
+              <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '23px', fontWeight: 500, lineHeight: 1.15 }}>
+                Participante do MOVE 50? <span style={{ color: GOLD, fontStyle: 'italic' }}>Acesse seu diário</span>
+              </div>
+            </div>
+            <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '30px', color: GOLD, fontStyle: 'italic' }}>→</div>
+          </Link>
+
           {grupos.map((grupo, gi) => (
             <div key={gi} style={{ marginBottom: '40px' }}>
               <div style={{
@@ -190,6 +209,7 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/diario" element={<Diario />} />
 
       {/* Iniciante 3x */}
       <Route path="/iniciante-3x-a" element={<TreinoA_Iniciante3x />} />
